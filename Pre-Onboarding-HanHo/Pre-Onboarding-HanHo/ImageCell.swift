@@ -7,65 +7,79 @@
 
 import UIKit
 
-class ImageLoadCell: UICollectionViewCell {
+class LoadImageCell: UITableViewCell {
     
-    static let identifier = "ImageLoadCell"
+    lazy var stackView: UIStackView = UIStackView(arrangedSubviews: [loadImageView, progressBar, loadButton])
+    lazy var loadImageView: UIImageView = UIImageView(image: UIImage(systemName: "photo"))
+    lazy var progressBar: UIProgressView = UIProgressView()
+    lazy var loadButton: RoundButton = RoundButton()
     
-    private let loadImageViewSize: CGFloat = 100
-    
-    private let loadImageView: UIImageView = {
-        var imageView = UIImageView()
-        imageView.backgroundColor = .systemCyan
-        imageView.layer.cornerRadius = 50
-       
-        return imageView
-    }()
-    
-    let loadButton: RoundButton = RoundButton()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setUI()
-        setConstraint()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setStyle()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setUI()
-        setConstraint()
+        fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUI() {
-        self.addSubview(loadImageView)
+    // MARK: - Style
+    private func setStyle() {
         
-        // MARK: - loadButton
-        loadButton.setTitle("Load", for: .normal)
-        loadButton.setTitleColor(.systemBackground, for: .normal)
-        loadButton.backgroundColor = .systemBlue
-        self.addSubview(loadButton)
-    }
-    
-    private func setConstraint() {
-        configureLoadImageViewConstraint()
-    }
-    
-    private func configureLoadImageViewConstraint() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.alignment = .center
+        stackView.spacing = 10
+        contentView.addSubview(stackView)
+        
         loadImageView.translatesAutoresizingMaskIntoConstraints = false
-        loadButton.translatesAutoresizingMaskIntoConstraints = false
+        loadImageView.contentMode = .scaleToFill
         
+        progressBar.translatesAutoresizingMaskIntoConstraints = false
+        progressBar.progressViewStyle = .default
+        progressBar.trackTintColor = .systemGray3
+        progressBar.progressTintColor = .systemBlue
+        progressBar.progress = 0.6
         
+        loadButton.setTitle("Load", for: .normal)
+        loadButton.backgroundColor = .systemBlue
+        loadButton.addTarget(self, action: #selector(loadImage), for: .touchUpInside)
+    }
+    
+    // MARK: - Layout
+    private func setLayout() {
         NSLayoutConstraint.activate([
-            loadImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            loadImageView.widthAnchor.constraint(equalToConstant: loadImageViewSize),
-            loadImageView.heightAnchor.constraint(equalToConstant: loadImageViewSize),
-            loadImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            
+            loadImageView.widthAnchor.constraint(equalToConstant: 120),
+            loadImageView.heightAnchor.constraint(equalToConstant: 90),
             
             loadButton.widthAnchor.constraint(equalToConstant: 80),
-            loadButton.heightAnchor.constraint(equalToConstant: 50),
-            loadButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 250),
-            loadButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10)
+            loadButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+    
+    // MARK: - FUNC: loadImage
+    @objc func loadImage(sender: UIButton!) {
+        self.loadImageView.image = UIImage(systemName: "photo")
+        
+        let url = URL(string: "https://ibb.co/RYnjxcc")!
+        
+        URLSession.shared.downloadTask(with: url, completionHandler: { (location, reponse, error) -> Void in
+            if let data = try? Data(contentsOf: url) {
+                let image = UIImage(data: data)
+                
+                DispatchQueue.main.async {
+                    self.loadImageView.image = image
+                }
+            }
+        }).resume()
+    }
 }
-
-

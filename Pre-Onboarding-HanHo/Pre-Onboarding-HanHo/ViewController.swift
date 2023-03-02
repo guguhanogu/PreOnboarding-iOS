@@ -8,7 +8,6 @@
 import UIKit
 import SwiftUI
 
-
 class ViewController: UIViewController {
     
     static let identifier = "MainViewController"
