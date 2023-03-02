@@ -78,7 +78,7 @@ class LoadImageCell: UITableViewCell {
     @objc func loadImage(sender: UIButton!) {
         self.loadImageView.image = UIImage(systemName: "photo")
         
-        let url = URL(string: "https://ibb.co/RYnjxcc")!
+        let url = URL(string: "https://item.kakaocdn.net/do/a1866850b14ae47d0a2fd61f409dfc057154249a3890514a43687a85e6b6cc82")!
         
         URLSession.shared.downloadTask(with: url, completionHandler: { (location, reponse, error) -> Void in
             if let data = try? Data(contentsOf: url) {
