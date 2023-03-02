@@ -13,7 +13,7 @@
 		348AB2CF29AF52F200F2D465 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 348AB2CE29AF52F200F2D465 /* Assets.xcassets */; };
 		348AB2D229AF52F200F2D465 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348AB2D029AF52F200F2D465 /* LaunchScreen.storyboard */; };
 		348AB2DC29B0A3FB00F2D465 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348AB2DB29B0A3FB00F2D465 /* RoundButton.swift */; };
-		348AB2DE29B0C04B00F2D465 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348AB2DD29B0C04B00F2D465 /* ImageCell.swift */; };
+		348AB2DE29B0C04B00F2D465 /* LoadImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348AB2DD29B0C04B00F2D465 /* LoadImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		348AB2D129AF52F200F2D465 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		348AB2D329AF52F200F2D465 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		348AB2DB29B0A3FB00F2D465 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		348AB2DD29B0C04B00F2D465 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		348AB2DD29B0C04B00F2D465 /* LoadImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 				348AB2C529AF52EE00F2D465 /* AppDelegate.swift */,
 				348AB2C729AF52EE00F2D465 /* SceneDelegate.swift */,
 				348AB2C929AF52EE00F2D465 /* ViewController.swift */,
-				348AB2DD29B0C04B00F2D465 /* ImageCell.swift */,
+				348AB2DD29B0C04B00F2D465 /* LoadImageCell.swift */,
 				348AB2DB29B0A3FB00F2D465 /* RoundButton.swift */,
 				348AB2CE29AF52F200F2D465 /* Assets.xcassets */,
 				348AB2D029AF52F200F2D465 /* LaunchScreen.storyboard */,
@@ -144,7 +144,7 @@
 				348AB2CA29AF52EE00F2D465 /* ViewController.swift in Sources */,
 				348AB2C629AF52EE00F2D465 /* AppDelegate.swift in Sources */,
 				348AB2C829AF52EE00F2D465 /* SceneDelegate.swift in Sources */,
-				348AB2DE29B0C04B00F2D465 /* ImageCell.swift in Sources */,
+				348AB2DE29B0C04B00F2D465 /* LoadImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,22 +28,27 @@ class LoadImageCell: UITableViewCell {
     // MARK: - Style
     private func setStyle() {
         
+        // MARK: stackView
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fill
         stackView.alignment = .center
         stackView.spacing = 10
+        
         contentView.addSubview(stackView)
         
+        // MARK: loadImageView
         loadImageView.translatesAutoresizingMaskIntoConstraints = false
         loadImageView.contentMode = .scaleToFill
         
+        // MARK: progressBar
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         progressBar.progressViewStyle = .default
         progressBar.trackTintColor = .systemGray3
         progressBar.progressTintColor = .systemBlue
         progressBar.progress = 0.6
         
+        // MARK: loadButton
         loadButton.setTitle("Load", for: .normal)
         loadButton.backgroundColor = .systemBlue
         loadButton.addTarget(self, action: #selector(loadImage), for: .touchUpInside)
@@ -53,15 +58,18 @@ class LoadImageCell: UITableViewCell {
     private func setLayout() {
         NSLayoutConstraint.activate([
             
+            // MARK: stackView
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
             
+            // MARK: loadImageView
             loadImageView.widthAnchor.constraint(equalToConstant: 120),
             loadImageView.heightAnchor.constraint(equalToConstant: 90),
             
-            loadButton.widthAnchor.constraint(equalToConstant: 80),
+            // MARK: loadButton
+            loadButton.widthAnchor.constraint(equalToConstant: 100),
             loadButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
