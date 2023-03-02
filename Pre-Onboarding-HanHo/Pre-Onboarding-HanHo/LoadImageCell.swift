@@ -66,11 +66,11 @@ class LoadImageCell: UITableViewCell {
             
             // MARK: loadImageView
             loadImageView.widthAnchor.constraint(equalToConstant: 120),
-            loadImageView.heightAnchor.constraint(equalToConstant: 90),
+            loadImageView.heightAnchor.constraint(equalToConstant: 80),
             
             // MARK: loadButton
             loadButton.widthAnchor.constraint(equalToConstant: 100),
-            loadButton.heightAnchor.constraint(equalToConstant: 50)
+            loadButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     

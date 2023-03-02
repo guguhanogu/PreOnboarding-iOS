@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         
         // MARK: - TableView
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+        tableView = UITableView(frame: CGRect(x: 0, y: 60, width: view.bounds.width, height: 500))
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -56,15 +56,16 @@ class ViewController: UIViewController {
     // MARK: - Layout
     private func layout() {
         
-        // [label] 기본 중앙 배치
         NSLayoutConstraint.activate([
-            
-            loadAllImagesButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
-            
-            
-            loadAllImagesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadAllImagesButton.widthAnchor.constraint(equalToConstant: 350),
-            loadAllImagesButton.heightAnchor.constraint(equalToConstant: 50),
+            loadAllImagesButton.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                constant: -240),
+            loadAllImagesButton.centerXAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            loadAllImagesButton.widthAnchor.constraint(
+                equalToConstant: 360),
+            loadAllImagesButton.heightAnchor.constraint(
+                equalToConstant: 40),
         ])
     }
     
