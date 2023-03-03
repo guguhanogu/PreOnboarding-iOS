@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         loadAllImagesButton.setTitle("Load All Images", for: .normal)
         loadAllImagesButton.setTitleColor(.systemBackground, for: .normal)
         loadAllImagesButton.backgroundColor = .systemBlue
+        loadAllImagesButton.addTarget(self, action: #selector(loadAllImage), for: .touchUpInside)
        
         view.addSubview(loadAllImagesButton)
     }
